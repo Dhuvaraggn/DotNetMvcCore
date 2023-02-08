@@ -1,0 +1,4 @@
+SelfTraining/bin/*
+SelfTraining/obj/*
+obj/*
+.vs/*

@@ -1,0 +1,49 @@
+﻿@model User
+<div class="text-center">
+    @*<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    From
+                </th>
+                <th>
+                   To
+                </th>
+                <th>
+                    MailBody
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailBody)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+    }
+        </tbody>
+        </table>*@
+    <form asp-controller="Account" method="post" asp-action="Register">
+        <h1 class="display-4">Register</h1>
+        <h2>Email</h2><input asp-for="Email" />
+        <h2>Password</h2><input type="password" asp-for="Password" />
+        <h2>Phone</h2><input type="tel" asp-for="Phone" />
+        <h2>Name</h2><input type="text" asp-for="Name"/>
+        <h2>Confirm Password</h2><input type="password" name="confirmpassword" asp-for="Password" />
+        <button type="submit">Register</button>
+    </form>
+</div>

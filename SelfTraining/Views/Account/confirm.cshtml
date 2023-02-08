@@ -1,0 +1,12 @@
+﻿@model SignupConfirmationViewModel
+<div>
+    <span>SignUp Confirmation</span>
+    <form asp-controller="Account" asp-action="Confirm" method="post">
+        <input asp-for="Email" name="Email" type="text" readonly />
+        <input asp-for="Code" name="Code" type="text" />
+        <button type="submit">
+            <span>confirm</span>
+        </button>
+    </form>
+</div>
+

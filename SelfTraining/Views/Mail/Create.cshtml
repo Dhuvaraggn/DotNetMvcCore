@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Mail Create Page";
+}
+@model Mail
+<div>
+    <form asp-controller="Mail" asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="From"></label>
+            <input asp-for="From" />
+            <span asp-validation-for="From" class="text-danger"></span>
+            <label asp-for="To"></label>
+            <input asp-for="To" />
+            <span asp-validation-for="To" class="text-danger"></span>
+            <label asp-for="MailBody"></label>
+            <input asp-for="MailBody" />
+            <span asp-validation-for="MailBody" class="text-danger"></span>
+            <button type="submit" class="btn btn-success">Create Mail</button>
+        </div>
+    </form>
+</div>  

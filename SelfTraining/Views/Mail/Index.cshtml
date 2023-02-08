@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Mail Page";
+}
+@model IEnumerable<Mail>
+    <div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>
+                @User.Identity.Name
+            </p>
+        }
+    <div class="flex-right">
+        @*<form method="get" asp-controller="Mail" asp-action="Create">*@
+        <a asp-controller="Mail" asp-action="Create">
+            <button type="submit" class="btn btn-success">
+                Create New Mail
+            </button>
+        </a>
+
+        @*</form>*@
+    </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <p>From</p>
+                    </th>
+                    <th scope="col">
+                        <p>To</p>
+                    </th>
+                    <th scope="col">
+                        <p>To</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr scope="row">
+                        <td>
+                            @obj.From
+                        </td>
+                        <td>
+                            @obj.To
+                        </td>
+                        <td>
+                            @obj.MailBody
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a asp-controller="Track" asp-action="Index" asp-route-mailid="@obj.ID">
+                                    Track
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

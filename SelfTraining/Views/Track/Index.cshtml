@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["title"] = "Track Page";
+}
+@model Mail
+<div>
+    <h1> Track Mail</h1>
+    <label asp-for="From"></label>
+    <input disabled asp-for="From"></input>
+    <label asp-for="To"> </label>
+    <input disabled asp-for="To"></input>
+    <label asp-for="MailBody"></label>
+    <input  disabled asp-for="MailBody"></input>
+
+    <div>
+        <h2>Track Status <label id="status">@Model.Status.ToString()</label></h2>
+        <div class="progress">
+            @if (Model.Status == "Created")
+            {
+                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            }
+            @if (Model.Status == "Pickup")
+            {
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            }@if (Model.Status == "Dispatched")
+            {
+                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            }@if (Model.Status == "Delivery")
+            {
+                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            }@if (Model.Status == "Delivered")
+            {
+                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            }
+        </div>
+    </div>
+</div>
